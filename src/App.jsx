@@ -7,8 +7,6 @@ import {
   PlayCircle, 
   Mail, 
   Phone, 
-  Instagram, 
-  Facebook, 
   Menu, 
   X, 
   ChevronRight,
@@ -16,6 +14,21 @@ import {
   Calendar,
   Image as ImageIcon
 } from 'lucide-react';
+
+// Custom Social Icons to replace the removed Lucide ones
+const Instagram = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+const Facebook = ({ size = 24, className = "" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+);
 
 // Reusable component for scroll-based fade-in animations
 const FadeInSection = ({ children, delay = 0, className = "" }) => {
@@ -28,12 +41,11 @@ const FadeInSection = ({ children, delay = 0, className = "" }) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true);
-            // Stop observing once it's visible so it doesn't animate out and in repeatedly
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 } // Triggers when 15% of the element is visible
+      { threshold: 0.15 }
     );
 
     const currentRef = domRef.current;
@@ -123,7 +135,7 @@ export default function App() {
             src={lightboxImage} 
             alt="Enlarged gallery view" 
             className="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+            onClick={(e) => e.stopPropagation()} 
           />
         </div>
       )}
@@ -133,7 +145,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('home')}>
-              <span className={`text-2xl font-black tracking-tighter ${isScrolled ? 'text-white' : 'text-white'}`}>
+              <span className={`text-2xl font-black tracking-tighter text-white`}>
                 SHAWN<span className="text-teal-500">.</span>
               </span>
             </div>
@@ -161,7 +173,7 @@ export default function App() {
             <div className="lg:hidden flex items-center">
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className={isScrolled ? 'text-white' : 'text-white'}
+                className="text-white"
               >
                 {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -189,7 +201,6 @@ export default function App() {
 
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop" 
@@ -232,7 +243,6 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeInSection delay={0}>
               <div className="relative">
-                {/* Image Placeholder */}
                 <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 group">
                   <img 
                     src="https://images.unsplash.com/photo-1493225457124-a1a2a5f5f468?q=80&w=2070&auto=format&fit=crop" 
@@ -240,7 +250,6 @@ export default function App() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                {/* Decorative block */}
                 <div className="absolute -bottom-6 -left-6 w-full h-full border-4 border-teal-600 rounded-3xl z-0 hidden md:block"></div>
               </div>
             </FadeInSection>
@@ -350,7 +359,6 @@ export default function App() {
           </FadeInSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Active Video */}
             <FadeInSection delay={100} className="lg:col-span-2 flex flex-col">
               <div className="relative aspect-video bg-stone-900 rounded-3xl overflow-hidden shadow-2xl mb-4 group cursor-pointer w-full">
                 <img 
@@ -363,7 +371,6 @@ export default function App() {
                     <PlayCircle size={40} className="text-white" />
                   </div>
                 </div>
-                {/* Progress Bar Placeholder */}
                 <div className="absolute bottom-0 left-0 w-full h-1.5 bg-stone-700/50">
                   <div className="h-full bg-teal-500 w-1/3 transition-all duration-1000 ease-linear"></div>
                 </div>
@@ -377,7 +384,6 @@ export default function App() {
               </div>
             </FadeInSection>
 
-            {/* Playlist / Additional Videos */}
             <FadeInSection delay={200} className="flex flex-col gap-4">
               <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-2 flex items-center gap-2">
                 <PlayCircle size={20} className="text-teal-600" />
@@ -427,7 +433,6 @@ export default function App() {
             <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-6">A picture is worth a thousand cheers.</h3>
           </FadeInSection>
 
-          {/* Masonry Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[250px]">
             {galleryImages.map((image, index) => (
               <FadeInSection 
@@ -441,7 +446,6 @@ export default function App() {
                     alt={image.alt} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/40 transition-colors duration-300 flex items-center justify-center">
                     <div className="bg-teal-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <ImageIcon size={24} />
@@ -462,7 +466,6 @@ export default function App() {
 
       {/* Testimonials */}
       <section id="testimonials" className="py-24 bg-stone-900 text-white relative overflow-hidden">
-        {/* Background accent */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-stone-800 rounded-l-[100px] opacity-20 -z-10 transform translate-x-1/4"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
