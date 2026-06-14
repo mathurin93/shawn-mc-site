@@ -7,8 +7,6 @@ import {
   PlayCircle, 
   Mail, 
   Phone, 
-  Instagram, 
-  // Notice: Facebook has been completely removed from this list!
   Menu, 
   X, 
   ChevronRight,
@@ -34,7 +32,28 @@ const Facebook = ({ size = 20, className = "" }) => (
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
   </svg>
 );
-// Local Image Imports (Uncomment these for your local Netlify build)
+
+// Drop-in SVG Fallback for Instagram
+const Instagram = ({ size = 20, className = "" }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+  </svg>
+);
+
+// Local Image Imports (Commented out for live preview)
 import bannerImg from './assets/banner-img.jpg';
 import aboutImg from './assets/shawn-about-img.jpg';
 import heroImg from './assets/hero.png';
@@ -50,21 +69,13 @@ import img10Landscape from './assets/img-10-landscape.jpg';
 import img11 from './assets/img-11.jpg';
 import tdp7653 from './assets/TDP_7653.jpg';
 
-// Placeholder images for live preview (Delete these for your local build)
-// const bannerImg = "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop";
-// const aboutImg = "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop";
-// const heroImg = "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=2070&auto=format&fit=crop";
-// const img1Landscape = "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop";
-// const img3 = "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop";
-// const img4 = "https://images.unsplash.com/photo-1540039155733-d7696d4eb559?q=80&w=1974&auto=format&fit=crop";
-// const img5 = "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop";
-// const img6Landscape = "https://images.unsplash.com/photo-1470229722913-7c092fb6224d?q=80&w=2070&auto=format&fit=crop";
-// const img7Landscape = "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=2162&auto=format&fit=crop";
-// const img8 = "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop";
-// const img9 = "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop";
-// const img10Landscape = "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop";
-// const img11 = "https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2070&auto=format&fit=crop";
-// const tdp7653 = "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop";
+// Local Video Imports (Commented out for live preview)
+import vid1 from './assets/vid-1.mp4';
+import vid2 from './assets/vid-2.mp4';
+import vid3 from './assets/vid-3.mp4';
+
+// Placeholders for live preview environment
+
 
 // Reusable component for scroll-based fade-in animations
 const FadeInSection = ({ children, delay = 0, className = "" }) => {
@@ -111,24 +122,28 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState(null);
 
+  // Updated Video Playlist using real .mp4 files
   const videoPlaylist = [
-    { id: 1, title: "Main Showreel 2024", thumbnail: heroImg, duration: "2:45" },
-    { id: 2, title: "Wedding Grand Entrance", thumbnail: img8, duration: "1:20" },
-    { id: 3, title: "Corporate Gala Hosting", thumbnail: img9, duration: "3:10" },
-    { id: 4, title: "Crowd Interaction & Comedy", thumbnail: img11, duration: "0:55" }
+    { id: 1, title: "Main Showreel 2024", src: vid1, duration: "2:45" },
+    { id: 2, title: "Wedding Grand Entrance", src: vid2, duration: "1:20" },
+    { id: 3, title: "Corporate Gala Hosting", src: vid3, duration: "3:10" }
   ];
   const [activeVideo, setActiveVideo] = useState(videoPlaylist[0]);
 
-  // Gallery grid logic using the landscape labeled images for wider spans
+  // Updated Gallery Logic: 
+  // Changed img-3 to span across 2 columns so the wide arms pose is not clipped.
   const galleryImages = [
-    { id: 1, src: img1Landscape, alt: "Event Landscape 1", span: "col-span-1 md:col-span-2 md:row-span-2" },
-    { id: 2, src: img3, alt: "Event Moment", span: "col-span-1 md:col-span-1" },
-    { id: 3, src: img4, alt: "Crowd hyping up", span: "col-span-1 md:col-span-1" },
-    { id: 4, src: img6Landscape, alt: "Event Landscape 2", span: "col-span-1 md:col-span-2" },
-    { id: 5, src: img5, alt: "Shawn on Stage", span: "col-span-1 md:col-span-1 md:row-span-2" },
-    { id: 6, src: img7Landscape, alt: "Event Landscape 3", span: "col-span-1 md:col-span-2" },
-    { id: 7, src: tdp7653, alt: "Special Event", span: "col-span-1 md:col-span-1" },
-    { id: 8, src: img10Landscape, alt: "Event Landscape 4", span: "col-span-1 md:col-span-2" },
+    { id: 1, src: img1Landscape, alt: "Event Landscape 1", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" },
+    { id: 2, src: img3, alt: "Event Moment 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Widened so arms aren't cut off
+    { id: 3, src: img4, alt: "Event Moment 4", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" }, // Taller, anchored top
+    { id: 4, src: img6Landscape, alt: "Event Landscape 2", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
+    { id: 5, src: img5, alt: "Shawn on Stage", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
+    { id: 6, src: img7Landscape, alt: "Event Landscape 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Taller
+    { id: 7, src: img8, alt: "Crowd moment", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, // Taller
+    { id: 8, src: img10Landscape, alt: "Event Landscape 4", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Taller
+    { id: 9, src: img9, alt: "Event moment 9", span: "col-span-1 md:col-span-1 md:row-span-1", objectPos: "object-center" },
+    { id: 10, src: img11, alt: "Crowd interaction", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, // Taller
+    { id: 11, src: tdp7653, alt: "Special Event", span: "col-span-1 md:col-span-1 md:row-span-1", objectPos: "object-center" },
   ];
 
   // Handle scroll effect for sticky navigation
@@ -175,7 +190,7 @@ export default function App() {
             src={lightboxImage} 
             alt="Enlarged gallery view" 
             className="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+            onClick={(e) => e.stopPropagation()} 
           />
         </div>
       )}
@@ -411,23 +426,15 @@ export default function App() {
           </FadeInSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Active Video */}
+            {/* Main Active Video Player */}
             <FadeInSection delay={100} className="lg:col-span-2 flex flex-col">
-              <div className="relative aspect-video bg-stone-900 rounded-3xl overflow-hidden shadow-2xl mb-4 group cursor-pointer w-full">
-                <img 
-                  src={activeVideo.thumbnail} 
-                  alt={activeVideo.title} 
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity duration-500"
+              <div className="relative aspect-video bg-stone-900 rounded-3xl overflow-hidden shadow-2xl mb-4 w-full">
+                <video 
+                  key={activeVideo.id} // forces reload of the src when activeVideo changes
+                  src={activeVideo.src} 
+                  controls
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="w-20 h-20 bg-teal-600 rounded-full flex items-center justify-center pl-2 group-hover:scale-110 transition-transform shadow-[0_0_30px_rgba(13,148,136,0.5)]">
-                    <PlayCircle size={40} className="text-white" />
-                  </div>
-                </div>
-                {/* Progress Bar Placeholder */}
-                <div className="absolute bottom-0 left-0 w-full h-1.5 bg-stone-700/50">
-                  <div className="h-full bg-teal-500 w-1/3 transition-all duration-1000 ease-linear"></div>
-                </div>
               </div>
               <div>
                 <h4 className="text-2xl font-bold text-stone-900">{activeVideo.title}</h4>
@@ -452,7 +459,12 @@ export default function App() {
                     className={`flex gap-4 p-3 rounded-2xl cursor-pointer transition-all ${activeVideo.id === video.id ? 'bg-white shadow-md border border-stone-200 scale-[1.02]' : 'hover:bg-stone-200 border border-transparent'}`}
                   >
                     <div className="relative w-32 h-20 flex-shrink-0 bg-stone-800 rounded-xl overflow-hidden">
-                      <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover opacity-80" />
+                      <video 
+                        src={video.src} 
+                        className="w-full h-full object-cover opacity-80" 
+                        muted 
+                        preload="metadata" 
+                      />
                       <div className="absolute inset-0 flex items-center justify-center bg-stone-900/20">
                         {activeVideo.id === video.id ? (
                           <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">
@@ -488,8 +500,8 @@ export default function App() {
             <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-6">A picture is worth a thousand cheers.</h3>
           </FadeInSection>
 
-          {/* Masonry Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[250px]">
+          {/* Masonry Grid: Added grid-flow-row-dense so mixed sizes pack tightly */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[250px] grid-flow-row-dense">
             {galleryImages.map((image, index) => (
               <FadeInSection 
                 key={image.id} 
@@ -500,7 +512,7 @@ export default function App() {
                   <img 
                     src={image.src} 
                     alt={image.alt} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className={`w-full h-full object-cover ${image.objectPos || 'object-center'} transition-transform duration-700 group-hover:scale-110`}
                   />
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/40 transition-colors duration-300 flex items-center justify-center">
