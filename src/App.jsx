@@ -7,6 +7,8 @@ import {
   PlayCircle, 
   Mail, 
   Phone, 
+  Instagram, 
+  // Notice: Facebook has been completely removed from this list!
   Menu, 
   X, 
   ChevronRight,
@@ -15,20 +17,54 @@ import {
   Image as ImageIcon
 } from 'lucide-react';
 
-// Custom Social Icons to replace the removed Lucide ones
-const Instagram = ({ size = 24, className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+// Drop-in SVG Fallback for Facebook
+const Facebook = ({ size = 20, className = "" }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
   </svg>
 );
+// Local Image Imports (Uncomment these for your local Netlify build)
+import bannerImg from './assets/banner-img.jpg';
+import aboutImg from './assets/shawn-about-img.jpg';
+import heroImg from './assets/hero.png';
+import img1Landscape from './assets/img-1-landscape.jpg';
+import img3 from './assets/img-3.jpg'; 
+import img4 from './assets/img-4.jpg';
+import img5 from './assets/img-5.jpg';
+import img6Landscape from './assets/img-6-lanscape.jpg';
+import img7Landscape from './assets/img-7-landscape.jpg';
+import img8 from './assets/img-8.jpg';
+import img9 from './assets/img-9.jpg';
+import img10Landscape from './assets/img-10-landscape.jpg';
+import img11 from './assets/img-11.jpg';
+import tdp7653 from './assets/TDP_7653.jpg';
 
-const Facebook = ({ size = 24, className = "" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-  </svg>
-);
+// Placeholder images for live preview (Delete these for your local build)
+// const bannerImg = "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop";
+// const aboutImg = "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop";
+// const heroImg = "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=2070&auto=format&fit=crop";
+// const img1Landscape = "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop";
+// const img3 = "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop";
+// const img4 = "https://images.unsplash.com/photo-1540039155733-d7696d4eb559?q=80&w=1974&auto=format&fit=crop";
+// const img5 = "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop";
+// const img6Landscape = "https://images.unsplash.com/photo-1470229722913-7c092fb6224d?q=80&w=2070&auto=format&fit=crop";
+// const img7Landscape = "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=2162&auto=format&fit=crop";
+// const img8 = "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop";
+// const img9 = "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop";
+// const img10Landscape = "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop";
+// const img11 = "https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2070&auto=format&fit=crop";
+// const tdp7653 = "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop";
 
 // Reusable component for scroll-based fade-in animations
 const FadeInSection = ({ children, delay = 0, className = "" }) => {
@@ -41,11 +77,12 @@ const FadeInSection = ({ children, delay = 0, className = "" }) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true);
+            // Stop observing once it's visible so it doesn't animate out and in repeatedly
             observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.15 } // Triggers when 15% of the element is visible
     );
 
     const currentRef = domRef.current;
@@ -75,20 +112,23 @@ export default function App() {
   const [lightboxImage, setLightboxImage] = useState(null);
 
   const videoPlaylist = [
-    { id: 1, title: "Main Showreel 2024", thumbnail: "https://images.unsplash.com/photo-1533174000220-11bfa010e9f1?q=80&w=2070&auto=format&fit=crop", duration: "2:45" },
-    { id: 2, title: "Wedding Grand Entrance", thumbnail: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop", duration: "1:20" },
-    { id: 3, title: "Corporate Gala Hosting", thumbnail: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop", duration: "3:10" },
-    { id: 4, title: "Crowd Interaction & Comedy", thumbnail: "https://images.unsplash.com/photo-1470229722913-7c092db658cb?q=80&w=2070&auto=format&fit=crop", duration: "0:55" }
+    { id: 1, title: "Main Showreel 2024", thumbnail: heroImg, duration: "2:45" },
+    { id: 2, title: "Wedding Grand Entrance", thumbnail: img8, duration: "1:20" },
+    { id: 3, title: "Corporate Gala Hosting", thumbnail: img9, duration: "3:10" },
+    { id: 4, title: "Crowd Interaction & Comedy", thumbnail: img11, duration: "0:55" }
   ];
   const [activeVideo, setActiveVideo] = useState(videoPlaylist[0]);
 
+  // Gallery grid logic using the landscape labeled images for wider spans
   const galleryImages = [
-    { id: 1, src: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop", alt: "Crowd hyping up", span: "col-span-1 md:col-span-2 md:row-span-2" },
-    { id: 2, src: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1000&auto=format&fit=crop", alt: "Event lighting", span: "col-span-1 md:col-span-1" },
-    { id: 3, src: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=1000&auto=format&fit=crop", alt: "Wedding speech", span: "col-span-1 md:col-span-1" },
-    { id: 4, src: "https://images.unsplash.com/photo-1470229722913-7c092db658cb?q=80&w=1000&auto=format&fit=crop", alt: "DJ and MC on stage", span: "col-span-1 md:col-span-1" },
-    { id: 5, src: "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=1000&auto=format&fit=crop", alt: "Corporate event", span: "col-span-1 md:col-span-1 md:row-span-2" },
-    { id: 6, src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=1000&auto=format&fit=crop", alt: "Wedding party", span: "col-span-1 md:col-span-2" },
+    { id: 1, src: img1Landscape, alt: "Event Landscape 1", span: "col-span-1 md:col-span-2 md:row-span-2" },
+    { id: 2, src: img3, alt: "Event Moment", span: "col-span-1 md:col-span-1" },
+    { id: 3, src: img4, alt: "Crowd hyping up", span: "col-span-1 md:col-span-1" },
+    { id: 4, src: img6Landscape, alt: "Event Landscape 2", span: "col-span-1 md:col-span-2" },
+    { id: 5, src: img5, alt: "Shawn on Stage", span: "col-span-1 md:col-span-1 md:row-span-2" },
+    { id: 6, src: img7Landscape, alt: "Event Landscape 3", span: "col-span-1 md:col-span-2" },
+    { id: 7, src: tdp7653, alt: "Special Event", span: "col-span-1 md:col-span-1" },
+    { id: 8, src: img10Landscape, alt: "Event Landscape 4", span: "col-span-1 md:col-span-2" },
   ];
 
   // Handle scroll effect for sticky navigation
@@ -135,7 +175,7 @@ export default function App() {
             src={lightboxImage} 
             alt="Enlarged gallery view" 
             className="max-w-[90vw] max-h-[90vh] object-contain rounded-xl shadow-2xl"
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
           />
         </div>
       )}
@@ -145,7 +185,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('home')}>
-              <span className={`text-2xl font-black tracking-tighter text-white`}>
+              <span className={`text-2xl font-black tracking-tighter ${isScrolled ? 'text-white' : 'text-white'}`}>
                 SHAWN<span className="text-teal-500">.</span>
               </span>
             </div>
@@ -173,7 +213,7 @@ export default function App() {
             <div className="lg:hidden flex items-center">
               <button 
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-white"
+                className={isScrolled ? 'text-white' : 'text-white'}
               >
                 {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
               </button>
@@ -201,10 +241,11 @@ export default function App() {
 
       {/* Hero Section */}
       <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0 cursor-pointer" onClick={() => setLightboxImage(bannerImg)}>
           <img 
-            src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=2070&auto=format&fit=crop" 
-            alt="Crowd cheering at event" 
+            src={bannerImg} 
+            alt="Shawn Event Banner" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-900/40"></div>
@@ -243,13 +284,24 @@ export default function App() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <FadeInSection delay={0}>
               <div className="relative">
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 group">
+                {/* Image Placeholder */}
+                <div 
+                  className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl relative z-10 group cursor-pointer" 
+                  onClick={() => setLightboxImage(aboutImg)}
+                >
                   <img 
-                    src="https://images.unsplash.com/photo-1493225457124-a1a2a5f5f468?q=80&w=2070&auto=format&fit=crop" 
+                    src={aboutImg} 
                     alt="Shawn MC" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
+                  {/* Hover Overlay for Expand */}
+                  <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/20 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-teal-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                      <ImageIcon size={24} />
+                    </div>
+                  </div>
                 </div>
+                {/* Decorative block */}
                 <div className="absolute -bottom-6 -left-6 w-full h-full border-4 border-teal-600 rounded-3xl z-0 hidden md:block"></div>
               </div>
             </FadeInSection>
@@ -258,7 +310,7 @@ export default function App() {
               <h2 className="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2">Meet Your Host</h2>
               <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">Hosting chose me. <br/> I've been riding the wave ever since.</h3>
               <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-                Shawn is a seasoned emcee with over a decade of experience under his belt. With a warm smile and quick wit, he has brought joy and laughter to countless events, seamlessly transitioning between weddings, birthdays, corporate gatherings, and anniversaries.
+                Shawn has been MC'ing since 2017, bringing joy and laughter to over 200 events. From seamless weddings and corporate events to high-energy birthday parties and anniversary celebrations, he seamlessly transitions to match the heartbeat of any room.
               </p>
               <p className="text-lg text-stone-600 mb-8 leading-relaxed">
                 Recently making Canada his new home, Shawn is no stranger to the stage. Whether he's keeping the party started or ensuring a ceremony runs with absolute precision, his passion for hosting shines through, leaving a lasting impression on all who attend.
@@ -266,12 +318,12 @@ export default function App() {
               
               <div className="grid grid-cols-2 gap-6 mb-8 border-t border-stone-200 pt-8">
                 <div>
-                  <h4 className="text-4xl font-black text-stone-900 mb-1">10<span className="text-teal-600">+</span></h4>
-                  <p className="text-stone-500 font-medium">Years Experience</p>
+                  <h4 className="text-4xl font-black text-stone-900 mb-1">2017</h4>
+                  <p className="text-stone-500 font-medium">Started Hosting</p>
                 </div>
                 <div>
-                  <h4 className="text-4xl font-black text-stone-900 mb-1">100s</h4>
-                  <p className="text-stone-500 font-medium">of Happy Clients</p>
+                  <h4 className="text-4xl font-black text-stone-900 mb-1">200<span className="text-teal-600">+</span></h4>
+                  <p className="text-stone-500 font-medium">Events Hosted</p>
                 </div>
               </div>
             </FadeInSection>
@@ -359,6 +411,7 @@ export default function App() {
           </FadeInSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Active Video */}
             <FadeInSection delay={100} className="lg:col-span-2 flex flex-col">
               <div className="relative aspect-video bg-stone-900 rounded-3xl overflow-hidden shadow-2xl mb-4 group cursor-pointer w-full">
                 <img 
@@ -371,6 +424,7 @@ export default function App() {
                     <PlayCircle size={40} className="text-white" />
                   </div>
                 </div>
+                {/* Progress Bar Placeholder */}
                 <div className="absolute bottom-0 left-0 w-full h-1.5 bg-stone-700/50">
                   <div className="h-full bg-teal-500 w-1/3 transition-all duration-1000 ease-linear"></div>
                 </div>
@@ -384,6 +438,7 @@ export default function App() {
               </div>
             </FadeInSection>
 
+            {/* Playlist / Additional Videos */}
             <FadeInSection delay={200} className="flex flex-col gap-4">
               <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-2 flex items-center gap-2">
                 <PlayCircle size={20} className="text-teal-600" />
@@ -433,6 +488,7 @@ export default function App() {
             <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-6">A picture is worth a thousand cheers.</h3>
           </FadeInSection>
 
+          {/* Masonry Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[250px]">
             {galleryImages.map((image, index) => (
               <FadeInSection 
@@ -446,6 +502,7 @@ export default function App() {
                     alt={image.alt} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
+                  {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/40 transition-colors duration-300 flex items-center justify-center">
                     <div className="bg-teal-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <ImageIcon size={24} />
@@ -466,6 +523,7 @@ export default function App() {
 
       {/* Testimonials */}
       <section id="testimonials" className="py-24 bg-stone-900 text-white relative overflow-hidden">
+        {/* Background accent */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-stone-800 rounded-l-[100px] opacity-20 -z-10 transform translate-x-1/4"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
