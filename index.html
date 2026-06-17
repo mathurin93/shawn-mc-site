@@ -1,13 +1,52 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>shawn-mc-site</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- Favicon: Ensure MGW-logo.png is placed inside your "public" folder -->
+  <link rel="icon" type="image/png" href="/MGW-logo.png" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO Tags -->
+  <title>Master G Wallace | Seasoned Emcee & Event Host</title>
+  <meta name="title" content="Master G Wallace | Seasoned Emcee & Event Host">
+  <meta name="description"
+    content="With a warm smile and quick wit, Master G Wallace brings your celebrations to life. Serving weddings, corporate gatherings, birthdays and anniversaries since 2017.">
+  <meta name="keywords" content="Emcee, Event Host, Wedding MC, Corporate Host, Master G Wallace, Canada Event Host">
+  <meta name="author" content="Master G Wallace">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mastergwallace.com/">
+  <meta property="og:title" content="Master G Wallace | Seasoned Emcee & Event Host">
+  <meta property="og:description"
+    content="Flawless events, joy, and laughter. Book Master G Wallace for your next wedding or corporate event.">
+  <meta property="og:image" content="https://mastergwallace.com/MGW-logo.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://mastergwallace.com/">
+  <meta property="twitter:title" content="Master G Wallace | Seasoned Emcee & Event Host">
+  <meta property="twitter:description"
+    content="Flawless events, joy, and laughter. Book Master G Wallace for your next wedding or corporate event.">
+  <meta property="twitter:image" content="https://mastergwallace.com/MGW-logo.png">
+</head>
+
+<body>
+  <!-- A hidden dummy form required by Netlify to parse the React form fields -->
+  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="firstName" />
+    <input type="text" name="lastName" />
+    <input type="email" name="email" />
+    <input type="date" name="eventDate" />
+    <select name="eventType"></select>
+    <textarea name="message"></textarea>
+  </form>
+
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
 </html>

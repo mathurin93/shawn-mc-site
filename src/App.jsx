@@ -72,6 +72,7 @@ const TikTok = ({ size = 20, className = "" }) => (
 );
 
 // Local Image Imports (Commented out for live preview)
+import logoImg from './assets/MGW-logo.png';
 import bannerImg from './assets/banner-img.jpg';
 import aboutImg from './assets/shawn-about-img.jpg';
 import heroImg from './assets/hero.png';
@@ -88,9 +89,10 @@ import img11 from './assets/img-11.jpg';
 import tdp7653 from './assets/TDP_7653.jpg';
 
 // Local Video Imports (Commented out for live preview)
-import vid1 from './assets/vid-1.mp4';
-import vid2 from './assets/vid-2.mp4';
-import vid3 from './assets/vid-3.mp4';
+// import vid1 from './assets/vid-1.mp4';
+// import vid2 from './assets/vid-2.mp4';
+// import vid3 from './assets/vid-3.mp4';
+
 
 
 // Reusable component for scroll-based fade-in animations
@@ -147,19 +149,18 @@ export default function App() {
   ];
   const [activeVideo, setActiveVideo] = useState(videoPlaylist[0]);
 
-  // Updated Gallery Logic: 
-  // Changed img-3 to span across 2 columns so the wide arms pose is not clipped.
+  // Updated Gallery Logic
   const galleryImages = [
     { id: 1, src: img1Landscape, alt: "Event Landscape 1", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" },
-    { id: 2, src: img3, alt: "Event Moment 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Widened so arms aren't cut off
-    { id: 3, src: img4, alt: "Event Moment 4", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" }, // Taller, anchored top
+    { id: 2, src: img3, alt: "Event Moment 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, 
+    { id: 3, src: img4, alt: "Event Moment 4", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" }, 
     { id: 4, src: img6Landscape, alt: "Event Landscape 2", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
     { id: 5, src: img5, alt: "Master G Wallace on Stage", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
-    { id: 6, src: img7Landscape, alt: "Event Landscape 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Taller
-    { id: 7, src: img8, alt: "Crowd moment", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, // Taller
-    { id: 8, src: img10Landscape, alt: "Event Landscape 4", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Taller
+    { id: 6, src: img7Landscape, alt: "Event Landscape 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, 
+    { id: 7, src: img8, alt: "Crowd moment", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, 
+    { id: 8, src: img10Landscape, alt: "Event Landscape 4", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, 
     { id: 9, src: img9, alt: "Event moment 9", span: "col-span-1 md:col-span-1 md:row-span-1", objectPos: "object-center" },
-    { id: 10, src: img11, alt: "Crowd interaction", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, // Taller
+    { id: 10, src: img11, alt: "Crowd interaction", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, 
     { id: 11, src: tdp7653, alt: "Special Event", span: "col-span-1 md:col-span-1 md:row-span-1", objectPos: "object-center" },
   ];
 
@@ -189,7 +190,7 @@ export default function App() {
     }
   };
 
-  const navItems = ['Home', 'About', 'Services', 'Gallery', 'Testimonials']; // Removed 'Media'
+  const navItems = ['Home', 'About', 'Services', 'Gallery', 'Testimonials']; 
 
   // Netlify AJAX Form Submission Handler
   const handleFormSubmit = (e) => {
@@ -208,13 +209,13 @@ export default function App() {
   };
 
   return (
-    <div className="font-sans text-stone-900 bg-stone-50 min-h-screen selection:bg-teal-600 selection:text-white">
+    <div className="font-sans text-stone-900 bg-stone-50 min-h-screen selection:bg-amber-600 selection:text-white">
       
       {/* Lightbox Overlay */}
       {lightboxImage && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-stone-900/95 backdrop-blur-md animate-fade-in" onClick={() => setLightboxImage(null)}>
           <button 
-            className="absolute top-6 right-6 text-white hover:text-teal-400 transition-colors bg-stone-800/50 rounded-full p-2"
+            className="absolute top-6 right-6 text-white hover:text-amber-400 transition-colors bg-stone-800/50 rounded-full p-2"
             onClick={() => setLightboxImage(null)}
           >
             <X size={32} />
@@ -229,13 +230,13 @@ export default function App() {
       )}
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-stone-900/95 backdrop-blur-md py-4 shadow-xl' : 'bg-transparent py-6'}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-stone-900/95 backdrop-blur-md py-3 shadow-xl' : 'bg-transparent py-6'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('home')}>
-              <span className={`text-2xl font-black tracking-tighter ${isScrolled ? 'text-white' : 'text-white'}`}>
-                MASTER G<span className="text-teal-500"> WALLACE.</span>
-              </span>
+            
+            {/* Logo Injection */}
+            <div className="flex-shrink-0 cursor-pointer bg-white/95 p-1.5 rounded-xl backdrop-blur-sm shadow-sm transition-transform hover:scale-105" onClick={() => scrollToSection('home')}>
+              <img src={logoImg} alt="Master G Wallace Logo" className="h-10 md:h-12 w-auto" />
             </div>
             
             {/* Desktop Menu */}
@@ -244,14 +245,14 @@ export default function App() {
                 <button 
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className={`text-sm font-medium uppercase tracking-wider hover:text-teal-400 transition-colors ${isScrolled ? 'text-stone-300' : 'text-white/90'}`}
+                  className={`text-sm font-bold uppercase tracking-wider hover:text-amber-400 transition-colors ${isScrolled ? 'text-stone-300' : 'text-white/90'}`}
                 >
                   {item}
                 </button>
               ))}
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105"
+                className="bg-amber-600 hover:bg-amber-500 text-white px-6 py-2 rounded-full font-bold transition-all transform hover:scale-105"
               >
                 Book Now
               </button>
@@ -277,7 +278,7 @@ export default function App() {
                 <button
                   key={item}
                   onClick={() => scrollToSection(item.toLowerCase())}
-                  className="block w-full text-left px-3 py-4 text-white text-lg font-medium border-b border-stone-800 hover:text-teal-400"
+                  className="block w-full text-left px-3 py-4 text-white text-lg font-medium border-b border-stone-800 hover:text-amber-400"
                 >
                   {item}
                 </button>
@@ -296,11 +297,11 @@ export default function App() {
             alt="Master G Wallace Event Banner" 
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-900/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/95 via-stone-900/80 to-stone-900/50"></div>
         </div>
 
         <FadeInSection className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
-          <span className="block text-teal-400 font-bold tracking-widest uppercase mb-4">
+          <span className="block text-amber-500 font-bold tracking-widest uppercase mb-4">
             Seasoned Emcee & Event Host
           </span>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight drop-shadow-lg">
@@ -312,7 +313,7 @@ export default function App() {
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <button 
               onClick={() => scrollToSection('contact')}
-              className="w-full sm:w-auto bg-teal-600 hover:bg-teal-500 text-white px-8 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(13,148,136,0.4)] flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-amber-600 hover:bg-amber-500 text-stone-950 px-8 py-4 rounded-full font-black text-lg transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(217,119,6,0.4)] flex items-center justify-center gap-2"
             >
               Check Availability <Calendar size={20} />
             </button>
@@ -344,18 +345,18 @@ export default function App() {
                   />
                   {/* Hover Overlay for Expand */}
                   <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/20 transition-colors duration-300 flex items-center justify-center">
-                    <div className="bg-teal-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    <div className="bg-amber-600 text-stone-900 p-3 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <ImageIcon size={24} />
                     </div>
                   </div>
                 </div>
                 {/* Decorative block */}
-                <div className="absolute -bottom-6 -left-6 w-full h-full border-4 border-teal-600 rounded-3xl z-0 hidden md:block"></div>
+                <div className="absolute -bottom-6 -left-6 w-full h-full border-4 border-amber-600 rounded-3xl z-0 hidden md:block"></div>
               </div>
             </FadeInSection>
             
             <FadeInSection delay={200}>
-              <h2 className="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2">Meet Your Host</h2>
+              <h2 className="text-sm font-bold text-amber-600 tracking-widest uppercase mb-2">Meet Your Host</h2>
               <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">Hosting chose me. <br/> I've been riding the wave ever since.</h3>
               <p className="text-lg text-stone-600 mb-6 leading-relaxed">
                 Master G Wallace has been MC'ing since 2017, bringing joy and laughter to over 200 events. From seamless weddings and corporate events to high-energy birthday parties and anniversary celebrations, he seamlessly transitions to match the heartbeat of any room.
@@ -370,7 +371,7 @@ export default function App() {
                   <p className="text-stone-500 font-medium">Started Hosting</p>
                 </div>
                 <div>
-                  <h4 className="text-4xl font-black text-stone-900 mb-1">200<span className="text-teal-600">+</span></h4>
+                  <h4 className="text-4xl font-black text-stone-900 mb-1">200<span className="text-amber-600">+</span></h4>
                   <p className="text-stone-500 font-medium">Events Hosted</p>
                 </div>
               </div>
@@ -380,18 +381,18 @@ export default function App() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-stone-900 text-white">
+      <section id="services" className="py-24 bg-stone-950 text-white border-y border-stone-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-sm font-bold text-teal-400 tracking-widest uppercase mb-2">Expertise</h2>
+            <h2 className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-2">Expertise</h2>
             <h3 className="text-4xl md:text-5xl font-black mb-6">Tailored for your occasion.</h3>
             <p className="text-stone-400 text-lg">Every event has a different heartbeat. I bring the perfect balance of energy, structure, and humor to match your crowd.</p>
           </FadeInSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FadeInSection delay={0}>
-              <div className="bg-stone-800 h-full p-10 rounded-3xl border border-stone-700 hover:border-teal-500 transition-colors group">
-                <div className="w-16 h-16 bg-teal-500/10 text-teal-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="bg-stone-900 h-full p-10 rounded-3xl border border-stone-800 hover:border-amber-500 transition-colors group shadow-xl">
+                <div className="w-16 h-16 bg-amber-500/10 text-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Music size={32} />
                 </div>
                 <h4 className="text-2xl font-bold mb-4">Weddings & Anniversaries</h4>
@@ -399,16 +400,16 @@ export default function App() {
                   Your special day deserves a seamless flow. I ensure your guests are informed, entertained, and ready to celebrate your love story.
                 </p>
                 <ul className="space-y-3 text-stone-300">
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> Grand Entrances</li>
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> Timeline Management</li>
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> Engaging the Crowd</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> Grand Entrances</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> Timeline Management</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> Engaging the Crowd</li>
                 </ul>
               </div>
             </FadeInSection>
 
             <FadeInSection delay={150}>
-              <div className="bg-stone-800 h-full p-10 rounded-3xl border border-stone-700 hover:border-teal-500 transition-colors group">
-                <div className="w-16 h-16 bg-teal-500/10 text-teal-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="bg-stone-900 h-full p-10 rounded-3xl border border-stone-800 hover:border-amber-500 transition-colors group shadow-xl">
+                <div className="w-16 h-16 bg-amber-500/10 text-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Users size={32} />
                 </div>
                 <h4 className="text-2xl font-bold mb-4">Corporate Gatherings</h4>
@@ -416,16 +417,16 @@ export default function App() {
                   Galas, award ceremonies, and holiday parties. Keep your schedule tight and your audience engaged with professional, polished hosting.
                 </p>
                 <ul className="space-y-3 text-stone-300">
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> Seamless Transitions</li>
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> Speaker Introductions</li>
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> Professional Polish</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> Seamless Transitions</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> Speaker Introductions</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> Professional Polish</li>
                 </ul>
               </div>
             </FadeInSection>
 
             <FadeInSection delay={300}>
-              <div className="bg-stone-800 h-full p-10 rounded-3xl border border-stone-700 hover:border-teal-500 transition-colors group">
-                <div className="w-16 h-16 bg-teal-500/10 text-teal-400 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div className="bg-stone-900 h-full p-10 rounded-3xl border border-stone-800 hover:border-amber-500 transition-colors group shadow-xl">
+                <div className="w-16 h-16 bg-amber-500/10 text-amber-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                   <Mic size={32} />
                 </div>
                 <h4 className="text-2xl font-bold mb-4">Birthdays & Private Parties</h4>
@@ -433,9 +434,9 @@ export default function App() {
                   Milestone birthdays and VIP events. I bring infectious energy and a quick wit to make the guest of honor feel like a superstar.
                 </p>
                 <ul className="space-y-3 text-stone-300">
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> High-Energy Hosting</li>
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> Quick-Witted Humor</li>
-                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-teal-500"/> Unforgettable Memories</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> High-Energy Hosting</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> Quick-Witted Humor</li>
+                  <li className="flex items-center gap-2"><ChevronRight size={16} className="text-amber-500"/> Unforgettable Memories</li>
                 </ul>
               </div>
             </FadeInSection>
@@ -443,102 +444,21 @@ export default function App() {
         </div>
       </section>
 
-      {/* Media Section - Temporarily Commented Out 
-      <section id="media" className="py-24 bg-stone-50 border-b border-stone-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInSection className="flex flex-col md:flex-row justify-between items-end mb-12">
-            <div>
-              <h2 className="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2">See It To Believe It</h2>
-              <h3 className="text-4xl md:text-5xl font-black text-stone-900">Master G Wallace in Action.</h3>
-            </div>
-            <div className="mt-4 md:mt-0 flex gap-4">
-              <a href="https://www.instagram.com/mastergwallace/" target="_blank" rel="noreferrer" className="flex items-center gap-2 font-bold text-stone-900 hover:text-teal-600 transition-colors">
-                <Instagram size={20} /> View Instagram
-              </a>
-            </div>
-          </FadeInSection>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <FadeInSection delay={100} className="lg:col-span-2 flex flex-col">
-              <div className="relative aspect-video bg-stone-900 rounded-3xl overflow-hidden shadow-2xl mb-4 w-full">
-                <video 
-                  key={activeVideo.id} 
-                  src={activeVideo.src} 
-                  controls
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <h4 className="text-2xl font-bold text-stone-900">{activeVideo.title}</h4>
-                <p className="text-stone-500 font-medium flex items-center gap-2 mt-1">
-                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                  Playing Now • {activeVideo.duration}
-                </p>
-              </div>
-            </FadeInSection>
-
-            <FadeInSection delay={200} className="flex flex-col gap-4">
-              <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-2 flex items-center gap-2">
-                <PlayCircle size={20} className="text-teal-600" />
-                Video Playlist
-              </h4>
-              <div className="flex flex-col gap-3 overflow-y-auto pr-2 pb-4 h-full max-h-[400px] lg:max-h-[500px]">
-                {videoPlaylist.map((video) => (
-                  <div 
-                    key={video.id} 
-                    onClick={() => setActiveVideo(video)}
-                    className={`flex gap-4 p-3 rounded-2xl cursor-pointer transition-all ${activeVideo.id === video.id ? 'bg-white shadow-md border border-stone-200 scale-[1.02]' : 'hover:bg-stone-200 border border-transparent'}`}
-                  >
-                    <div className="relative w-32 h-20 flex-shrink-0 bg-stone-800 rounded-xl overflow-hidden">
-                      <video 
-                        src={video.src} 
-                        className="w-full h-full object-cover opacity-80" 
-                        muted 
-                        preload="metadata" 
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center bg-stone-900/20">
-                        {activeVideo.id === video.id ? (
-                          <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">
-                            <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
-                          </div>
-                        ) : (
-                          <PlayCircle size={24} className="text-white opacity-80" />
-                        )}
-                      </div>
-                      <span className="absolute bottom-1 right-1 bg-stone-900/80 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
-                        {video.duration}
-                      </span>
-                    </div>
-                    <div className="flex flex-col justify-center">
-                      <h5 className={`text-sm font-bold line-clamp-2 ${activeVideo.id === video.id ? 'text-teal-600' : 'text-stone-800'}`}>
-                        {video.title}
-                      </h5>
-                      <p className="text-xs text-stone-500 mt-1">Live Event</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </FadeInSection>
-          </div>
-        </div>
-      </section>
-      */}
-
       {/* Photo Gallery Section */}
-      <section id="gallery" className="py-24 bg-white">
+      <section id="gallery" className="py-24 bg-stone-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2">Event Highlights</h2>
+            <h2 className="text-sm font-bold text-amber-600 tracking-widest uppercase mb-2">Event Highlights</h2>
             <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-6">A picture is worth a thousand cheers.</h3>
           </FadeInSection>
 
-          {/* Masonry Grid: Added grid-flow-row-dense so mixed sizes pack tightly */}
+          {/* Masonry Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:auto-rows-[250px] grid-flow-row-dense">
             {galleryImages.map((image, index) => (
               <FadeInSection 
                 key={image.id} 
                 delay={index * 100} 
-                className={`${image.span} relative group overflow-hidden rounded-2xl cursor-pointer bg-stone-100 shadow-sm hover:shadow-xl transition-all duration-300`}
+                className={`${image.span} relative group overflow-hidden rounded-2xl cursor-pointer bg-stone-200 shadow-sm hover:shadow-xl transition-all duration-300`}
               >
                 <div onClick={() => setLightboxImage(image.src)} className="w-full h-full">
                   <img 
@@ -547,8 +467,8 @@ export default function App() {
                     className={`w-full h-full object-cover ${image.objectPos || 'object-center'} transition-transform duration-700 group-hover:scale-110`}
                   />
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/40 transition-colors duration-300 flex items-center justify-center">
-                    <div className="bg-teal-600 text-white p-3 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                  <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/50 transition-colors duration-300 flex items-center justify-center">
+                    <div className="bg-amber-600 text-stone-900 p-3 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                       <ImageIcon size={24} />
                     </div>
                   </div>
@@ -558,9 +478,9 @@ export default function App() {
           </div>
           
           <FadeInSection delay={400} className="mt-12 text-center">
-             <button className="text-stone-600 font-bold hover:text-teal-600 transition-colors inline-flex items-center gap-2">
+             <a href="https://www.instagram.com/mastergwallace/" target="_blank" rel="noreferrer" className="text-stone-600 font-bold hover:text-amber-600 transition-colors inline-flex items-center gap-2">
                 View Full Gallery on Instagram <Instagram size={18} />
-             </button>
+             </a>
           </FadeInSection>
         </div>
       </section>
@@ -572,7 +492,7 @@ export default function App() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="text-center mb-16">
-            <h2 className="text-sm font-bold text-teal-400 tracking-widest uppercase mb-2">Reviews</h2>
+            <h2 className="text-sm font-bold text-amber-500 tracking-widest uppercase mb-2">Reviews</h2>
             <h3 className="text-4xl md:text-5xl font-black">Words from happy clients.</h3>
           </FadeInSection>
 
@@ -595,9 +515,9 @@ export default function App() {
               }
             ].map((review, idx) => (
               <FadeInSection key={idx} delay={idx * 150} className="h-full">
-                <div className="bg-stone-800/80 backdrop-blur-sm p-10 rounded-3xl relative h-full flex flex-col justify-between border border-stone-700/50 hover:border-teal-500/30 transition-colors">
+                <div className="bg-stone-800/80 backdrop-blur-sm p-10 rounded-3xl relative h-full flex flex-col justify-between border border-stone-700/50 hover:border-amber-500/50 transition-colors">
                   <div>
-                    <div className="flex text-teal-400 mb-6">
+                    <div className="flex text-amber-500 mb-6">
                       <Star fill="currentColor" size={20} />
                       <Star fill="currentColor" size={20} />
                       <Star fill="currentColor" size={20} />
@@ -608,7 +528,7 @@ export default function App() {
                   </div>
                   <div>
                     <h5 className="font-bold text-white text-lg">{review.author}</h5>
-                    <p className="text-teal-400 text-sm">{review.event}</p>
+                    <p className="text-amber-500 text-sm">{review.event}</p>
                   </div>
                 </div>
               </FadeInSection>
@@ -625,7 +545,7 @@ export default function App() {
               
               {/* Contact Info */}
               <div>
-                <h2 className="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2">Let's Talk</h2>
+                <h2 className="text-sm font-bold text-amber-600 tracking-widest uppercase mb-2">Let's Talk</h2>
                 <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-6">Ready to make your event unforgettable?</h3>
                 <p className="text-stone-600 text-lg mb-10 leading-relaxed">
                   Fill out the form with your event details, and I will get back to you to discuss availability, vision, and pricing. Let's create something amazing together.
@@ -633,21 +553,21 @@ export default function App() {
 
                 <div className="space-y-6">
                   <div className="flex items-center gap-4 group">
-                    <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                    <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center group-hover:bg-amber-600 group-hover:text-stone-950 transition-colors">
                       <Mail size={24} />
                     </div>
                     <div>
                       <p className="text-sm text-stone-500 font-medium">Email Me</p>
-                      <a href="mailto:mastergwallace@yahoo.com" className="text-xl font-bold text-stone-900 group-hover:text-teal-600 transition-colors">mastergwallace@yahoo.com</a>
+                      <a href="mailto:mastergwallace@yahoo.com" className="text-xl font-bold text-stone-900 group-hover:text-amber-600 transition-colors">mastergwallace@yahoo.com</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 group">
-                    <div className="w-14 h-14 bg-teal-50 text-teal-600 rounded-full flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                    <div className="w-14 h-14 bg-amber-50 text-amber-600 rounded-full flex items-center justify-center group-hover:bg-amber-600 group-hover:text-stone-950 transition-colors">
                       <Phone size={24} />
                     </div>
                     <div>
                       <p className="text-sm text-stone-500 font-medium">Call Me</p>
-                      <a href="tel:+1234567890" className="text-xl font-bold text-stone-900 group-hover:text-teal-600 transition-colors">(555) 123-4567</a>
+                      <a href="tel:+1234567890" className="text-xl font-bold text-stone-900 group-hover:text-amber-600 transition-colors">(555) 123-4567</a>
                     </div>
                   </div>
                 </div>
@@ -655,9 +575,9 @@ export default function App() {
                 <div className="mt-12 border-t border-stone-100 pt-8">
                   <p className="text-sm font-bold text-stone-900 uppercase mb-4 tracking-widest">Follow The Journey</p>
                   <div className="flex gap-4">
-                    <a href="https://www.instagram.com/mastergwallace/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><Instagram size={20}/></a>
-                    <a href="https://www.facebook.com/people/MasterGwallace/100063452296025/#" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><Facebook size={20}/></a>
-                    <a href="https://www.tiktok.com/@mastergwallace" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><TikTok size={20}/></a>
+                    <a href="https://www.instagram.com/mastergwallace/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-stone-950 transition-colors"><Instagram size={20}/></a>
+                    <a href="https://www.facebook.com/people/MasterGwallace/100063452296025/#" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-stone-950 transition-colors"><Facebook size={20}/></a>
+                    <a href="https://www.tiktok.com/@mastergwallace" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-amber-600 hover:text-stone-950 transition-colors"><TikTok size={20}/></a>
                   </div>
                 </div>
               </div>
@@ -666,14 +586,14 @@ export default function App() {
               <div className="bg-stone-50 p-8 rounded-3xl border border-stone-200">
                 {formStatus === 'success' ? (
                   <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12 animate-fade-in">
-                    <div className="w-20 h-20 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mb-4">
+                    <div className="w-20 h-20 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mb-4">
                       <Star size={40} />
                     </div>
                     <h3 className="text-3xl font-black text-stone-900">Request Sent!</h3>
                     <p className="text-stone-600 text-lg">Thank you! I'll be in touch with you shortly to discuss your event.</p>
                     <button 
                       onClick={() => setFormStatus(null)}
-                      className="mt-6 text-teal-600 font-bold hover:text-teal-800 transition-colors"
+                      className="mt-6 text-amber-600 font-bold hover:text-amber-800 transition-colors"
                     >
                       Send another inquiry
                     </button>
@@ -686,27 +606,27 @@ export default function App() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-bold text-stone-700 mb-2">First Name</label>
-                        <input type="text" name="firstName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="John" />
+                        <input type="text" name="firstName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all" placeholder="John" />
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-stone-700 mb-2">Last Name</label>
-                        <input type="text" name="lastName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="Doe" />
+                        <input type="text" name="lastName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all" placeholder="Doe" />
                       </div>
                     </div>
                     
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-2">Email Address</label>
-                      <input type="email" name="email" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="john@example.com" />
+                      <input type="email" name="email" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all" placeholder="john@example.com" />
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
                         <label className="block text-sm font-bold text-stone-700 mb-2">Event Date</label>
-                        <input type="date" name="eventDate" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600" />
+                        <input type="date" name="eventDate" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all text-stone-600" />
                       </div>
                       <div>
                         <label className="block text-sm font-bold text-stone-700 mb-2">Event Type</label>
-                        <select name="eventType" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600">
+                        <select name="eventType" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all text-stone-600">
                           <option value="Wedding">Wedding</option>
                           <option value="Corporate Gathering">Corporate Gathering</option>
                           <option value="Birthday / Anniversary">Birthday / Anniversary</option>
@@ -717,13 +637,13 @@ export default function App() {
 
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-2">Tell me about your event</label>
-                      <textarea name="message" required rows="4" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none" placeholder="Location, estimated guest count, specific needs..."></textarea>
+                      <textarea name="message" required rows="4" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 outline-none transition-all resize-none" placeholder="Location, estimated guest count, specific needs..."></textarea>
                     </div>
 
                     <button 
                       type="submit" 
                       disabled={formStatus === 'submitting'}
-                      className={`w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg flex justify-center items-center gap-2 ${formStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                      className={`w-full bg-amber-600 hover:bg-amber-500 text-stone-950 font-black py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg flex justify-center items-center gap-2 ${formStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
                     >
                       {formStatus === 'submitting' ? 'Sending...' : 'Send Inquiry'} <ChevronRight size={20} />
                     </button>
@@ -742,12 +662,16 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-stone-950 py-12 text-center text-stone-500">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-2xl font-black tracking-tighter text-white mb-6">
-            MASTER G<span className="text-teal-500"> WALLACE.</span>
-          </h2>
+          {/* Replaced Text Logo with Image Logo in Footer */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-white/95 p-2 rounded-2xl shadow-lg">
+              <img src={logoImg} alt="Master G Wallace Logo" className="h-16 w-auto" />
+            </div>
+          </div>
+          
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {navItems.map(item => (
-              <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className="hover:text-teal-400 transition-colors uppercase text-sm tracking-wider">{item}</button>
+              <button key={item} onClick={() => scrollToSection(item.toLowerCase())} className="hover:text-amber-400 transition-colors uppercase text-sm tracking-wider font-medium">{item}</button>
             ))}
           </div>
           <p className="text-sm">
