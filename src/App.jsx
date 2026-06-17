@@ -93,7 +93,6 @@ import vid2 from './assets/vid-2.mp4';
 import vid3 from './assets/vid-3.mp4';
 
 
-
 // Reusable component for scroll-based fade-in animations
 const FadeInSection = ({ children, delay = 0, className = "" }) => {
   const [isVisible, setVisible] = useState(false);
@@ -138,6 +137,7 @@ export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [lightboxImage, setLightboxImage] = useState(null);
+  const [formStatus, setFormStatus] = useState(null); // Added form status state
 
   // Updated Video Playlist using real .mp4 files
   const videoPlaylist = [
@@ -189,7 +189,23 @@ export default function App() {
     }
   };
 
-  const navItems = ['Home', 'About', 'Services', 'Media', 'Gallery', 'Testimonials'];
+  const navItems = ['Home', 'About', 'Services', 'Gallery', 'Testimonials']; // Removed 'Media'
+
+  // Netlify AJAX Form Submission Handler
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    setFormStatus('submitting');
+    const form = e.target;
+    const formData = new FormData(form);
+    
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => setFormStatus('success'))
+    .catch((error) => setFormStatus('error'));
+  };
 
   return (
     <div className="font-sans text-stone-900 bg-stone-50 min-h-screen selection:bg-teal-600 selection:text-white">
@@ -301,10 +317,10 @@ export default function App() {
               Check Availability <Calendar size={20} />
             </button>
             <button 
-              onClick={() => scrollToSection('media')}
+              onClick={() => scrollToSection('gallery')}
               className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center gap-2"
             >
-              Watch Reel <PlayCircle size={20} />
+              View Gallery <ImageIcon size={20} />
             </button>
           </div>
         </FadeInSection>
@@ -427,7 +443,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Media Section */}
+      {/* Media Section - Temporarily Commented Out 
       <section id="media" className="py-24 bg-stone-50 border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInSection className="flex flex-col md:flex-row justify-between items-end mb-12">
@@ -443,11 +459,10 @@ export default function App() {
           </FadeInSection>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Main Active Video Player */}
             <FadeInSection delay={100} className="lg:col-span-2 flex flex-col">
               <div className="relative aspect-video bg-stone-900 rounded-3xl overflow-hidden shadow-2xl mb-4 w-full">
                 <video 
-                  key={activeVideo.id} // forces reload of the src when activeVideo changes
+                  key={activeVideo.id} 
                   src={activeVideo.src} 
                   controls
                   className="w-full h-full object-cover"
@@ -462,7 +477,6 @@ export default function App() {
               </div>
             </FadeInSection>
 
-            {/* Playlist / Additional Videos */}
             <FadeInSection delay={200} className="flex flex-col gap-4">
               <h4 className="font-bold text-stone-900 uppercase tracking-wider mb-2 flex items-center gap-2">
                 <PlayCircle size={20} className="text-teal-600" />
@@ -508,6 +522,7 @@ export default function App() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Photo Gallery Section */}
       <section id="gallery" className="py-24 bg-white">
@@ -649,51 +664,74 @@ export default function App() {
 
               {/* Booking Form */}
               <div className="bg-stone-50 p-8 rounded-3xl border border-stone-200">
-                <form name="contact" method="POST" data-netlify="true" className="space-y-6">
-                  {/* Required for Netlify Forms to detect the submission in React */}
-                  <input type="hidden" name="form-name" value="contact" />
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">First Name</label>
-                      <input type="text" name="firstName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="John" />
+                {formStatus === 'success' ? (
+                  <div className="h-full flex flex-col items-center justify-center text-center space-y-4 py-12 animate-fade-in">
+                    <div className="w-20 h-20 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mb-4">
+                      <Star size={40} />
                     </div>
-                    <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">Last Name</label>
-                      <input type="text" name="lastName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="Doe" />
+                    <h3 className="text-3xl font-black text-stone-900">Request Sent!</h3>
+                    <p className="text-stone-600 text-lg">Thank you! I'll be in touch with you shortly to discuss your event.</p>
+                    <button 
+                      onClick={() => setFormStatus(null)}
+                      className="mt-6 text-teal-600 font-bold hover:text-teal-800 transition-colors"
+                    >
+                      Send another inquiry
+                    </button>
+                  </div>
+                ) : (
+                  <form name="contact" method="POST" data-netlify="true" onSubmit={handleFormSubmit} className="space-y-6">
+                    {/* Required for Netlify Forms to detect the submission in React */}
+                    <input type="hidden" name="form-name" value="contact" />
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-bold text-stone-700 mb-2">First Name</label>
+                        <input type="text" name="firstName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="John" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-stone-700 mb-2">Last Name</label>
+                        <input type="text" name="lastName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="Doe" />
+                      </div>
                     </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-bold text-stone-700 mb-2">Email Address</label>
-                    <input type="email" name="email" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="john@example.com" />
-                  </div>
+                    
+                    <div>
+                      <label className="block text-sm font-bold text-stone-700 mb-2">Email Address</label>
+                      <input type="email" name="email" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="john@example.com" />
+                    </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">Event Date</label>
-                      <input type="date" name="eventDate" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-bold text-stone-700 mb-2">Event Date</label>
+                        <input type="date" name="eventDate" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600" />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-bold text-stone-700 mb-2">Event Type</label>
+                        <select name="eventType" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600">
+                          <option value="Wedding">Wedding</option>
+                          <option value="Corporate Gathering">Corporate Gathering</option>
+                          <option value="Birthday / Anniversary">Birthday / Anniversary</option>
+                          <option value="Other">Other</option>
+                        </select>
+                      </div>
                     </div>
+
                     <div>
-                      <label className="block text-sm font-bold text-stone-700 mb-2">Event Type</label>
-                      <select name="eventType" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600">
-                        <option value="Wedding">Wedding</option>
-                        <option value="Corporate Gathering">Corporate Gathering</option>
-                        <option value="Birthday / Anniversary">Birthday / Anniversary</option>
-                        <option value="Other">Other</option>
-                      </select>
+                      <label className="block text-sm font-bold text-stone-700 mb-2">Tell me about your event</label>
+                      <textarea name="message" required rows="4" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none" placeholder="Location, estimated guest count, specific needs..."></textarea>
                     </div>
-                  </div>
 
-                  <div>
-                    <label className="block text-sm font-bold text-stone-700 mb-2">Tell me about your event</label>
-                    <textarea name="message" required rows="4" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none" placeholder="Location, estimated guest count, specific needs..."></textarea>
-                  </div>
-
-                  <button type="submit" className="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg flex justify-center items-center gap-2">
-                    Send Inquiry <ChevronRight size={20} />
-                  </button>
-                </form>
+                    <button 
+                      type="submit" 
+                      disabled={formStatus === 'submitting'}
+                      className={`w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg flex justify-center items-center gap-2 ${formStatus === 'submitting' ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    >
+                      {formStatus === 'submitting' ? 'Sending...' : 'Send Inquiry'} <ChevronRight size={20} />
+                    </button>
+                    {formStatus === 'error' && (
+                      <p className="text-red-500 text-sm text-center mt-2 font-medium">Oops! There was a problem submitting your form. Please try again.</p>
+                    )}
+                  </form>
+                )}
               </div>
 
             </div>
