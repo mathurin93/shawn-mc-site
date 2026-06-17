@@ -53,6 +53,24 @@ const Instagram = ({ size = 20, className = "" }) => (
   </svg>
 );
 
+// Drop-in SVG Fallback for TikTok
+const TikTok = ({ size = 20, className = "" }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+  </svg>
+);
+
 // Local Image Imports (Commented out for live preview)
 import bannerImg from './assets/banner-img.jpg';
 import aboutImg from './assets/shawn-about-img.jpg';
@@ -74,7 +92,6 @@ import vid1 from './assets/vid-1.mp4';
 import vid2 from './assets/vid-2.mp4';
 import vid3 from './assets/vid-3.mp4';
 
-// Placeholders for live preview environment
 
 
 // Reusable component for scroll-based fade-in animations
@@ -137,7 +154,7 @@ export default function App() {
     { id: 2, src: img3, alt: "Event Moment 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Widened so arms aren't cut off
     { id: 3, src: img4, alt: "Event Moment 4", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" }, // Taller, anchored top
     { id: 4, src: img6Landscape, alt: "Event Landscape 2", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
-    { id: 5, src: img5, alt: "Shawn on Stage", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
+    { id: 5, src: img5, alt: "Master G Wallace on Stage", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
     { id: 6, src: img7Landscape, alt: "Event Landscape 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Taller
     { id: 7, src: img8, alt: "Crowd moment", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, // Taller
     { id: 8, src: img10Landscape, alt: "Event Landscape 4", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, // Taller
@@ -201,7 +218,7 @@ export default function App() {
           <div className="flex justify-between items-center">
             <div className="flex-shrink-0 cursor-pointer" onClick={() => scrollToSection('home')}>
               <span className={`text-2xl font-black tracking-tighter ${isScrolled ? 'text-white' : 'text-white'}`}>
-                SHAWN<span className="text-teal-500">.</span>
+                MASTER G<span className="text-teal-500"> WALLACE.</span>
               </span>
             </div>
             
@@ -260,7 +277,7 @@ export default function App() {
         <div className="absolute inset-0 z-0 cursor-pointer" onClick={() => setLightboxImage(bannerImg)}>
           <img 
             src={bannerImg} 
-            alt="Shawn Event Banner" 
+            alt="Master G Wallace Event Banner" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-stone-900/90 via-stone-900/70 to-stone-900/40"></div>
@@ -274,7 +291,7 @@ export default function App() {
             JOY, LAUGHTER & <br className="hidden md:block"/> FLAWLESS EVENTS.
           </h1>
           <p className="text-xl md:text-2xl text-stone-200 mb-10 max-w-2xl mx-auto font-light">
-            With a warm smile and quick wit, Shawn brings your celebrations to life—from the first welcome to the final farewell.
+            With a warm smile and quick wit, Master G Wallace brings your celebrations to life—from the first welcome to the final farewell.
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <button 
@@ -306,7 +323,7 @@ export default function App() {
                 >
                   <img 
                     src={aboutImg} 
-                    alt="Shawn MC" 
+                    alt="Master G Wallace MC" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                   {/* Hover Overlay for Expand */}
@@ -325,10 +342,10 @@ export default function App() {
               <h2 className="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2">Meet Your Host</h2>
               <h3 className="text-4xl md:text-5xl font-black text-stone-900 mb-6 leading-tight">Hosting chose me. <br/> I've been riding the wave ever since.</h3>
               <p className="text-lg text-stone-600 mb-6 leading-relaxed">
-                Shawn has been MC'ing since 2017, bringing joy and laughter to over 200 events. From seamless weddings and corporate events to high-energy birthday parties and anniversary celebrations, he seamlessly transitions to match the heartbeat of any room.
+                Master G Wallace has been MC'ing since 2017, bringing joy and laughter to over 200 events. From seamless weddings and corporate events to high-energy birthday parties and anniversary celebrations, he seamlessly transitions to match the heartbeat of any room.
               </p>
               <p className="text-lg text-stone-600 mb-8 leading-relaxed">
-                Recently making Canada his new home, Shawn is no stranger to the stage. Whether he's keeping the party started or ensuring a ceremony runs with absolute precision, his passion for hosting shines through, leaving a lasting impression on all who attend.
+                Recently making Canada his new home, Master G Wallace is no stranger to the stage. Whether he's keeping the party started or ensuring a ceremony runs with absolute precision, his passion for hosting shines through, leaving a lasting impression on all who attend.
               </p>
               
               <div className="grid grid-cols-2 gap-6 mb-8 border-t border-stone-200 pt-8">
@@ -416,10 +433,10 @@ export default function App() {
           <FadeInSection className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div>
               <h2 className="text-sm font-bold text-teal-600 tracking-widest uppercase mb-2">See It To Believe It</h2>
-              <h3 className="text-4xl md:text-5xl font-black text-stone-900">Shawn in Action.</h3>
+              <h3 className="text-4xl md:text-5xl font-black text-stone-900">Master G Wallace in Action.</h3>
             </div>
             <div className="mt-4 md:mt-0 flex gap-4">
-              <a href="#" className="flex items-center gap-2 font-bold text-stone-900 hover:text-teal-600 transition-colors">
+              <a href="https://www.instagram.com/mastergwallace/" target="_blank" rel="noreferrer" className="flex items-center gap-2 font-bold text-stone-900 hover:text-teal-600 transition-colors">
                 <Instagram size={20} /> View Instagram
               </a>
             </div>
@@ -547,17 +564,17 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                text: "Shawn was the absolute highlight of our wedding. His warm smile put everyone at ease, and his quick wit had the whole room laughing. Everything ran perfectly!",
+                text: "Master G Wallace was the absolute highlight of our wedding. His warm smile put everyone at ease, and his quick wit had the whole room laughing. Everything ran perfectly!",
                 author: "Sarah & David",
                 event: "Wedding Couple"
               },
               {
-                text: "We brought Shawn in for our annual corporate gathering. He managed the crowd brilliantly, keeping things professional but incredibly fun. A true natural.",
+                text: "We brought Master G in for our annual corporate gathering. He managed the crowd brilliantly, keeping things professional but incredibly fun. A true natural.",
                 author: "James L.",
                 event: "Corporate Event Director"
               },
               {
-                text: "If you want someone who can read a room and keep the party alive, Shawn is your guy. He hosted my parents' 50th anniversary and made it entirely unforgettable.",
+                text: "If you want someone who can read a room and keep the party alive, Master G Wallace is your guy. He hosted my parents' 50th anniversary and made it entirely unforgettable.",
                 author: "Michael T.",
                 event: "Anniversary Celebration"
               }
@@ -606,7 +623,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-sm text-stone-500 font-medium">Email Me</p>
-                      <a href="mailto:hello@shawnemcee.com" className="text-xl font-bold text-stone-900 group-hover:text-teal-600 transition-colors">hello@shawnemcee.com</a>
+                      <a href="mailto:mastergwallace@yahoo.com" className="text-xl font-bold text-stone-900 group-hover:text-teal-600 transition-colors">mastergwallace@yahoo.com</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4 group">
@@ -623,50 +640,54 @@ export default function App() {
                 <div className="mt-12 border-t border-stone-100 pt-8">
                   <p className="text-sm font-bold text-stone-900 uppercase mb-4 tracking-widest">Follow The Journey</p>
                   <div className="flex gap-4">
-                    <a href="#" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><Instagram size={20}/></a>
-                    <a href="#" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><Facebook size={20}/></a>
+                    <a href="https://www.instagram.com/mastergwallace/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><Instagram size={20}/></a>
+                    <a href="https://www.facebook.com/people/MasterGwallace/100063452296025/#" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><Facebook size={20}/></a>
+                    <a href="https://www.tiktok.com/@mastergwallace" target="_blank" rel="noreferrer" className="w-12 h-12 bg-stone-100 text-stone-600 rounded-full flex items-center justify-center hover:bg-teal-600 hover:text-white transition-colors"><TikTok size={20}/></a>
                   </div>
                 </div>
               </div>
 
               {/* Booking Form */}
               <div className="bg-stone-50 p-8 rounded-3xl border border-stone-200">
-                <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <form name="contact" method="POST" data-netlify="true" className="space-y-6">
+                  {/* Required for Netlify Forms to detect the submission in React */}
+                  <input type="hidden" name="form-name" value="contact" />
+                  
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-2">First Name</label>
-                      <input type="text" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="John" />
+                      <input type="text" name="firstName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="John" />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-2">Last Name</label>
-                      <input type="text" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="Doe" />
+                      <input type="text" name="lastName" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="Doe" />
                     </div>
                   </div>
                   
                   <div>
                     <label className="block text-sm font-bold text-stone-700 mb-2">Email Address</label>
-                    <input type="email" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="john@example.com" />
+                    <input type="email" name="email" required className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all" placeholder="john@example.com" />
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-2">Event Date</label>
-                      <input type="date" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600" />
+                      <input type="date" name="eventDate" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600" />
                     </div>
                     <div>
                       <label className="block text-sm font-bold text-stone-700 mb-2">Event Type</label>
-                      <select className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600">
-                        <option>Wedding</option>
-                        <option>Corporate Gathering</option>
-                        <option>Birthday / Anniversary</option>
-                        <option>Other</option>
+                      <select name="eventType" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all text-stone-600">
+                        <option value="Wedding">Wedding</option>
+                        <option value="Corporate Gathering">Corporate Gathering</option>
+                        <option value="Birthday / Anniversary">Birthday / Anniversary</option>
+                        <option value="Other">Other</option>
                       </select>
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-bold text-stone-700 mb-2">Tell me about your event</label>
-                    <textarea rows="4" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none" placeholder="Location, estimated guest count, specific needs..."></textarea>
+                    <textarea name="message" required rows="4" className="w-full px-4 py-3 rounded-xl bg-white border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all resize-none" placeholder="Location, estimated guest count, specific needs..."></textarea>
                   </div>
 
                   <button type="submit" className="w-full bg-teal-600 hover:bg-teal-500 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg flex justify-center items-center gap-2">
@@ -684,7 +705,7 @@ export default function App() {
       <footer className="bg-stone-950 py-12 text-center text-stone-500">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-2xl font-black tracking-tighter text-white mb-6">
-            SHAWN<span className="text-teal-500">.</span>
+            MASTER G<span className="text-teal-500"> WALLACE.</span>
           </h2>
           <div className="flex flex-wrap justify-center gap-6 mb-8">
             {navItems.map(item => (
@@ -692,7 +713,7 @@ export default function App() {
             ))}
           </div>
           <p className="text-sm">
-            &copy; {new Date().getFullYear()} Hosted By Shawn. All rights reserved. 
+            &copy; {new Date().getFullYear()} Hosted By Master G Wallace. All rights reserved. 
           </p>
         </div>
       </footer>
