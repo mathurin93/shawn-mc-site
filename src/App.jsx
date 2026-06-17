@@ -89,9 +89,9 @@ import img11 from './assets/img-11.jpg';
 import tdp7653 from './assets/TDP_7653.jpg';
 
 // Local Video Imports (Commented out for live preview)
-// import vid1 from './assets/vid-1.mp4';
-// import vid2 from './assets/vid-2.mp4';
-// import vid3 from './assets/vid-3.mp4';
+import vid1 from './assets/vid-1.mp4';
+import vid2 from './assets/vid-2.mp4';
+import vid3 from './assets/vid-3.mp4';
 
 
 
