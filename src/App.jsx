@@ -72,47 +72,26 @@ const TikTok = ({ size = 20, className = "" }) => (
 );
 
 // Local Image Imports (Commented out for live preview)
-// import logoImg from './assets/MGW-logo.png';
-// import bannerImg from './assets/banner-img.jpg';
-// import aboutImg from './assets/shawn-about-img.jpg';
-// import heroImg from './assets/hero.png';
-// import img1Landscape from './assets/img-1-landscape.jpg';
-// import img3 from './assets/img-3.jpg'; 
-// import img4 from './assets/img-4.jpg';
-// import img5 from './assets/img-5.jpg';
-// import img6Landscape from './assets/img-6-lanscape.jpg';
-// import img7Landscape from './assets/img-7-landscape.jpg';
-// import img8 from './assets/img-8.jpg';
-// import img9 from './assets/img-9.jpg';
-// import img10Landscape from './assets/img-10-landscape.jpg';
-// import img11 from './assets/img-11.jpg';
-// import tdp7653 from './assets/TDP_7653.jpg';
+import logoImg from './assets/MGW-logo.png';
+import bannerImg from './assets/banner-img.jpg';
+import aboutImg from './assets/shawn-about-img.jpg';
+import heroImg from './assets/hero.png';
+import img1Landscape from './assets/img-1-landscape.jpg';
+import img3 from './assets/img-3.jpg'; 
+import img4 from './assets/img-4.jpg';
+import img5 from './assets/img-5.jpg';
+import img6Landscape from './assets/img-6-lanscape.jpg';
+import img7Landscape from './assets/img-7-landscape.jpg';
+import img8 from './assets/img-8.jpg';
+import img9 from './assets/img-9.jpg';
+import img10Landscape from './assets/img-10-landscape.jpg';
+import img11 from './assets/img-11.jpg';
+import tdp7653 from './assets/TDP_7653.jpg';
 
 // Local Video Imports (Commented out for live preview)
-// import vid1 from './assets/vid-1.mp4';
-// import vid2 from './assets/vid-2.mp4';
-// import vid3 from './assets/vid-3.mp4';
-
-// Placeholders for live preview environment
-const logoImg = "https://placehold.co/400x150/ffffff/D4AF37?text=MGW+EMCEE&font=playfair-display";
-const bannerImg = "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop";
-const aboutImg = "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1000&auto=format&fit=crop";
-const heroImg = "https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=2070&auto=format&fit=crop";
-const img1Landscape = "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=2070&auto=format&fit=crop";
-const img3 = "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop";
-const img4 = "https://images.unsplash.com/photo-1540039155733-d7696d4eb559?q=80&w=1974&auto=format&fit=crop";
-const img5 = "https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=2070&auto=format&fit=crop";
-const img6Landscape = "https://images.unsplash.com/photo-1470229722913-7c092fb6224d?q=80&w=2070&auto=format&fit=crop";
-const img7Landscape = "https://images.unsplash.com/photo-1505236858219-8359eb29e329?q=80&w=2162&auto=format&fit=crop";
-const img8 = "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069&auto=format&fit=crop";
-const img9 = "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?q=80&w=2070&auto=format&fit=crop";
-const img10Landscape = "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop";
-const img11 = "https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=2070&auto=format&fit=crop";
-const tdp7653 = "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?q=80&w=2070&auto=format&fit=crop";
-
-const vid1 = "https://www.w3schools.com/html/mov_bbb.mp4";
-const vid2 = "https://www.w3schools.com/html/mov_bbb.mp4";
-const vid3 = "https://www.w3schools.com/html/mov_bbb.mp4";
+import vid1 from './assets/vid-1.mp4';
+import vid2 from './assets/vid-2.mp4';
+import vid3 from './assets/vid-3.mp4';
 
 // Reusable component for scroll-based fade-in animations
 const FadeInSection = ({ children, delay = 0, className = "" }) => {
