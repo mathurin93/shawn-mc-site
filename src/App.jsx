@@ -232,9 +232,9 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             
-            {/* Logo Injection - Fixed width/height for perfect circle */}
-            <div className="flex-shrink-0 cursor-pointer bg-white/95 p-1.5 rounded-full backdrop-blur-sm shadow-sm transition-transform hover:scale-105 flex items-center justify-center" onClick={() => scrollToSection('home')}>
-              <img src={logoImg} alt="Master G Wallace Logo" className="h-12 w-12 md:h-16 md:w-16 object-contain rounded-full" />
+            {/* Logo Injection - Transparent Background */}
+            <div className="flex-shrink-0 cursor-pointer transition-transform hover:scale-105 flex items-center justify-center" onClick={() => scrollToSection('home')}>
+              <img src={logoImg} alt="Master G Wallace Logo" className="h-12 w-12 md:h-16 md:w-16 object-contain" />
             </div>
             
             {/* Desktop Menu */}
@@ -660,10 +660,10 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-stone-950 py-12 text-center text-stone-500">
         <div className="max-w-7xl mx-auto px-4">
-          {/* Replaced Text Logo with Image Logo in Footer - Fixed for perfect circle */}
+          {/* Replaced Text Logo with Image Logo in Footer - Transparent Background */}
           <div className="flex justify-center mb-8">
-            <div className="bg-white/95 p-2 rounded-full shadow-lg inline-flex items-center justify-center">
-              <img src={logoImg} alt="Master G Wallace Logo" className="h-16 w-16 object-contain rounded-full" />
+            <div className="inline-flex items-center justify-center">
+              <img src={logoImg} alt="Master G Wallace Logo" className="h-16 w-16 md:h-20 md:w-20 object-contain" />
             </div>
           </div>
           
