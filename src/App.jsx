@@ -77,7 +77,7 @@ import bannerImg from './assets/banner-img.jpg';
 import aboutImg from './assets/shawn-about-img.jpg';
 import heroImg from './assets/hero.png';
 import img1Landscape from './assets/img-1-landscape.jpg';
-import img3 from './assets/img-3.jpg'; 
+import img3 from './assets/img-3.jpg';
 import img4 from './assets/img-4.jpg';
 import img5 from './assets/img-5.jpg';
 import img6Landscape from './assets/img-6-lanscape.jpg';
@@ -86,6 +86,20 @@ import img8 from './assets/img-8.jpg';
 import img9 from './assets/img-9.jpg';
 import img10Landscape from './assets/img-10-landscape.jpg';
 import img11 from './assets/img-11.jpg';
+import img12 from './assets/img-12.jpg';
+import img15 from './assets/IMG-15.jpg';
+import img16 from './assets/IMG-16.jpg';
+import img17 from './assets/img-17.jpg';
+import img21 from './assets/img-21.jpg';
+import img22 from './assets/img-22.jpg';
+import imgLandscape13 from './assets/IMG-landscape-13.jpg';
+import imgLandscape14 from './assets/img-landscape-14.jpg';
+import imgLandscape15 from './assets/img-landscape-15.jpg';
+import imgLandscape18 from './assets/img-landscape-18.jpg';
+import imgLandscape19 from './assets/img-landscape-19.jpg';
+import imgLandscape20 from './assets/img-landscape-20.jpg';
+import imgLandscape23 from './assets/img-landscape-23.jpg';
+import imgLandscape24 from './assets/img-landscape-24.jpg';
 import tdp7653 from './assets/TDP_7653.jpg';
 
 // Local Video Imports (Commented out for live preview)
@@ -150,16 +164,30 @@ export default function App() {
   // Updated Gallery Logic
   const galleryImages = [
     { id: 1, src: img1Landscape, alt: "Event Landscape 1", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" },
-    { id: 2, src: img3, alt: "Event Moment 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, 
-    { id: 3, src: img4, alt: "Event Moment 4", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" }, 
-    { id: 4, src: img6Landscape, alt: "Event Landscape 2", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
-    { id: 5, src: img5, alt: "Master G Wallace on Stage", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
-    { id: 6, src: img7Landscape, alt: "Event Landscape 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, 
-    { id: 7, src: img8, alt: "Crowd moment", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, 
-    { id: 8, src: img10Landscape, alt: "Event Landscape 4", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" }, 
-    { id: 9, src: img9, alt: "Event moment 9", span: "col-span-1 md:col-span-1 md:row-span-1", objectPos: "object-center" },
-    { id: 10, src: img11, alt: "Crowd interaction", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" }, 
-    { id: 11, src: tdp7653, alt: "Special Event", span: "col-span-1 md:col-span-1 md:row-span-1", objectPos: "object-center" },
+    { id: 2, src: img3, alt: "Event Moment 3", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" },
+    { id: 3, src: imgLandscape13, alt: "Event Landscape 13", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
+    { id: 4, src: img4, alt: "Event Moment 4", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
+    { id: 5, src: img6Landscape, alt: "Event Landscape 2", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
+    { id: 6, src: img12, alt: "Event Moment 12", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" },
+    { id: 7, src: img5, alt: "Master G Wallace on Stage", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
+    { id: 8, src: imgLandscape14, alt: "Event Landscape 14", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
+    { id: 9, src: img7Landscape, alt: "Event Landscape 3", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" },
+    { id: 10, src: img15, alt: "Event Moment 15", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
+    { id: 11, src: img8, alt: "Crowd moment", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" },
+    { id: 12, src: imgLandscape15, alt: "Event Landscape 15", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
+    { id: 13, src: img10Landscape, alt: "Event Landscape 4", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" },
+    { id: 14, src: img16, alt: "Event Moment 16", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
+    { id: 15, src: img9, alt: "Event moment 9", span: "col-span-1 md:col-span-1 md:row-span-1", objectPos: "object-center" },
+    { id: 16, src: imgLandscape18, alt: "Event Landscape 18", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
+    { id: 17, src: img17, alt: "Event Moment 17", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" },
+    { id: 18, src: img11, alt: "Crowd interaction", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" },
+    { id: 19, src: imgLandscape19, alt: "Event Landscape 19", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" },
+    { id: 20, src: img21, alt: "Event Moment 21", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-top" },
+    { id: 21, src: imgLandscape20, alt: "Event Landscape 20", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
+    { id: 22, src: img22, alt: "Event Moment 22", span: "col-span-1 md:col-span-1 md:row-span-2", objectPos: "object-center" },
+    { id: 23, src: imgLandscape23, alt: "Event Landscape 23", span: "col-span-1 md:col-span-2 md:row-span-1", objectPos: "object-center" },
+    { id: 24, src: imgLandscape24, alt: "Event Landscape 24", span: "col-span-1 md:col-span-2 md:row-span-2", objectPos: "object-center" },
+    { id: 25, src: tdp7653, alt: "Special Event", span: "col-span-1 md:col-span-1 md:row-span-1", objectPos: "object-center" },
   ];
 
   // Handle scroll effect for sticky navigation
@@ -295,7 +323,7 @@ export default function App() {
             alt="Master G Wallace Event Banner" 
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/95 via-stone-900/80 to-stone-900/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-stone-950/65 via-stone-900/45 to-stone-900/20 md:from-stone-950/85 md:via-stone-900/65 md:to-stone-900/30"></div>
         </div>
 
         <FadeInSection className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
@@ -565,7 +593,7 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-sm text-stone-500 font-medium">Call Me</p>
-                      <a href="tel:+1234567890" className="text-xl font-bold text-stone-900 group-hover:text-amber-600 transition-colors">(555) 123-4567</a>
+                      <a href="tel:+16474253158" className="text-xl font-bold text-stone-900 group-hover:text-amber-600 transition-colors">(647) 425-3158</a>
                     </div>
                   </div>
                 </div>
